@@ -1,17 +1,26 @@
 # Entrevista_PRACTIA
 Entrevista do dia 23/02/2026
-# Projeto de Automação e Versionamento - Patrick Analista
+Analista Responsável: Patrick | Assistente IA: Jack [cite: 2026-01-16]
 
-Este repositório contém o sistema de backup automático de workflows n8n, desenvolvido para atender aos requisitos de padronização e previsibilidade da PRACTIA.
+Este repositório implementa um ecossistema de Backup e Versionamento Automático para o n8n, focado em alta disponibilidade e organização modular de código [cite: 2026-02-23].
 
-## 🚀 Funcionalidades
-* **Versionamento Automático (Item 6):** Sincronização a cada 30 minutos via Schedule Trigger.
-* **CRUD via API (Item 7):** Extração de dados via n8n API e persistência via GitHub API.
-* **Arquitetura:** Uso de Loops e Split Out para processamento em lote de múltiplos workflows.
+🛠️ Arquitetura Técnica
+O workflow foi desenhado seguindo padrões de sistemas distribuídos:
 
-## 📂 Estrutura de Pastas
-* `/`: Contém o workflow principal (Main).
-* `/library`: Contém os componentes globais reutilizáveis (Standard_Logger e Error_Handler).
+Triggering: Agendamento via Schedule Trigger (30 min) para garantir sincronia contínua.
 
-## 🔒 Segurança
-* Credenciais gerenciadas via ambiente seguro (Secrets/API Keys), garantindo que dados sensíveis não fiquem expostos no código.
+Orquestração: Uso de Split Out e Loop Over Items para processamento escalável de workflows em lote.
+
+Camada de Integração (CRUD API): Consumo da API REST v1 do n8n para extração de JSONs e persistência via API do GitHub.
+
+Estrutura do Repositório (Standard Practia)
+Seguindo a norma de padronização definida para o projeto [cite: 2026-02-23]:
+
+/ : Workflows de produção e fluxo principal (Main_Workflow.json).
+
+/library : Componentes globais e handlers de sistema (Standard_Logger, Error_Handler).
+
+Segurança e Previsibilidade
+Gestão de Segredos: Todas as API Keys e credenciais são injetadas via nó de Credenciais, sem exposição no código.
+
+Resiliência: Implementado tratamento de erros para garantir que falhas em um nó não interrompam a esteira de backup
