@@ -1,0 +1,59 @@
+{
+  "name": "Standard_Logger.json",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "3a9c1502-fdc9-475a-a499-f33b0ff363d0",
+      "name": "Execute Workflow Trigger",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1,
+      "position": [
+        -288,
+        -32
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "return [{ timestamp: new Date(), status: 'LOG_EVENT', data: $json }];"
+      },
+      "id": "8bd41dec-a46b-492d-96a0-1208e7506238",
+      "name": "Format Log",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -64,
+        -32
+      ]
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Execute Workflow Trigger": {
+      "main": [
+        [
+          {
+            "node": "Format Log",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v0",
+    "binaryMode": "separate",
+    "availableInMCP": false,
+    "timeSavedMode": "fixed",
+    "timezone": "America/Sao_Paulo",
+    "callerPolicy": "workflowsFromSameOwner",
+    "saveExecutionProgress": true
+  },
+  "versionId": "b2f28d1d-439c-472c-9415-7cd7332d99cc",
+  "meta": {
+    "instanceId": "998fe3eea700b1ec72e1df17133c8ee09be0c1fbd0fa5d309d60ec3758039a2e"
+  },
+  "id": "MajmKpE-7gQ9ZLHmXRMFB",
+  "tags": []
+}
